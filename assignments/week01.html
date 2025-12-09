@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Renata Y Cecilia - IBERO PUEBLA</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Fab Academy documentation site for Your Name">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="../index.html" class="logo">
+					<span class="symbol"><img src="../assets/images/iberologo.png" alt="" /></span><span class="title">Renata Y Cecilia -
+						IBERO PUEBLA</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="../index.html">Proyectos</a></li>
+				<li><a href="../finalproject.html">Proyecto Final</a></li>
+				<li><a href="../about.html">Sobre Nosotras </a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>1. El uso de Kicad</h1>
+				<p>Una placa de circuito impreso (PCB, por sus siglas en inglés) es la base de todos los aparatos electrónicos. 
+					Se define como un circuito cuyos componentes y conductores están contenidos dentro de una estructura mecánica. 
+					En pocas palabras, es una placa con pistas trazadas en su superficie, que sirven para conectar diferentes 
+					componentes entre sí. Existen diferentes tipos según su material, tecnologías y aplicación.<p>
+
+                    </p>El diseño de la PCB se realiza mediante un software especializado. El diseñador del circuito coloca 
+					los componentes, las rutas de trazados y las capas según los requisitos, funcionalidad y disponibilidad de 
+					espacio. KiCad es justamente uno de los softwares más usados para este fin, pues cubre casi todas las etapas 
+					de diseño de una PCB, desde la creación del esquemático hasta la generación de archivos de fabricación.</p>
+
+				<h2>Pasos</h2>
+				<p>Para utilizar KiCad seguimos los siguientes pasos:</p>
+				<h2>1) Cargar en el programa las librerías proporcionadas por el FAB</h2>
+				<p>Para poder instalar las nuevas librerías, seleccionamos la opción “Preferencias” en la parte superior
+					 de la ventana. Después, damos click en “Gestionar biblioteca de símbolos” y deslizamos hasta el final donde
+					  damos click en el símbolo +, proporcionamos el nombre de “fab” y luego damos click en el símbolo de la 
+					  carpeta en la segunda columna, seleccionamos el archivo “fab.kicad_sym” que nos proporcionaron y aceptamos.</p>
+
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso1.jpg" alt="..." /></figure>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso2.png" alt="..." /></figure>
+
+				<p>Repetimos el proceso y seleccionamos “Gestionar biblioteca de huellas” en “Preferencias” y agregamos el 
+					archivo “fab.pretty”. Finalmente, en “Configurar rutas” seleccionamos el archivo de “kicad-master”. 
+					Con eso, estamos listas para comenzar a diseñar.</p>
+				<h2>2) Esquemático</h2>
+				<p>1) Abrimos el “Editor de esquemas” y dando click en la letra “a” de nuestro teclado, se abre una ventana 
+					que nos permite buscar el componente que queramos, simplemente lo seleccionamos y colocamos en la hoja. 
+					Debemos asegurarnos que aparezca la huella del componente pues será importante para el proceso en el editor 
+					de placas.</p>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso3.png" alt="..." /></figure>
+				<p>El modo más básico de conectar componentes es dibujar líneas desde una patita hasta otra. Simplemente se
+					 selecciona un cable, se hace click en la terminal, se arrastra hasta la terminal de otro componente y 
+					 se suelta. Si queremos unir varios cables en un punto, el programa pone un punto de unión para mostrar 
+					 que de verdad están conectados ahí.</p>
+				<p>En KiCad, cuando dibujas un esquemático, a veces hay tantas líneas de conexión que el dibujo se torna 
+					un poco confuso. Para evitar eso, existen las etiquetas de conexión, que son como ponerles nombres a los 
+					ables. Si dos o más cables tienen la misma etiqueta, el programa entiende que están conectados, aunque no 
+					haya una línea dibujada entre ellos.</p>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso4.png" alt="..." /></figure>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso5.png" alt="..." /></figure>
+				<h2>3) Editor de placas</h2>
+				<p>Para movernos al editor de placas, damos click en el ícono de una placa verde en la parte superior 
+					derecha de la pantalla. Una vez ahí, debemos cargar nuestro esquemático, para esto seleccionamos el 
+					ícono que dice “Actualizar placa desde esquema”, esto no solo importará todos los componentes del 
+					esquemático a la placa sino que también nos alertará de cualquier error que podamos tener.</p>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso6.png" alt="..." /></figure>
+				<p>Después de eso, acomodamos los componentes en la placa según las conexiones que haremos. Es necesario tener
+					 en mente las herramientas de las que disponemos, pues ellas son las que determinan cosas como el ancho de 
+					 pista que podemos usar. En este caso, tenemos la Roland monoFab SRM-20 por lo que dejaremos un ancho de 
+					 ista de 0.4mm. Para hacer esto, seleccionamos la opción de Pista en la esquina superior izquierda y damos 
+					 click en “Editar tamaños predefinidos".</p>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso7.png" alt="..." /></figure>
+				<p>También recibimos la recomendación del profesor de no dejar esquinas con ángulos de 90° en nuestras pistas, 
+					esta es una regla clásica de diseño de PCB pues al formar una L perfecta, las señales pueden distorsionarse 
+					al cambiar tan abruptamente de dirección.</p>
+				<p>Algunas otras cosas que debemos tomar en cuenta son qué distancia mínima podemos dejar entre pistas, 
+					no pueden estar demasiado pegadas porque la electricidad puede saltar y hacer cortos. Debemos evitar hacer 
+					“cableados” tan grandes o largos y para eso hay que ubicar de forma lógica los componentes pues eso evita 
+					pistas largas y enredos. De igual manera, una buena práctica es dejar los nombres de los componentes legibles 
+					para que la PCB sea fácil de revisar y armar.</p>
+				<p>Sabiendo esto, podemos empezar a rutear. Seleccionamos el ícono de cable azul y cualquier terminal de un componente, 
+					KiCad nos marcará automáticamente las conexiones que debemos hacer.</p>
+				<p>Una vez que todos los componentes estén conectados, dibujamos el contorno de la pista, lo cual nos 
+					permitirá determinar las dimensiones máximas de la placa.</p>
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso8.png" alt="..." /></figure>
+				<h2>4) Guardar Archivos</h2>
+				<p>Finalmente, para obtener los archivos a utilizar, damos click en “Archivo” -> “Salidas de fabricación” y 
+					seleccionamos “Gerbers (gbr)”, esto abrirá una ventana que permitirá seleccionar las capas que queramos, 
+					en “Formato de trazado” seleccionamos SVG. En nuestro caso, las capas incluidas fueron F.Cu 
+					(contorno de la placa), Edge.Cuts (rutas), User.1 (perforaciones) y User.2 (etiquetas).</p>
+					<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs/paso9.png" alt="..." /></figure>
+				
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/renatx_9/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://www.instagram.com/ceciliaa.pp/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+			
+				</section>
+				<ul class="copyright">
+					<li>&copy; Copyright 2025 Renta Morales y Cecilia Piña </li>
+					<li>Creative Commons Attribution Non Commercial</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

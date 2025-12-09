@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Renata Y Cecilia - IBERO PUEBLA</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Fab Academy documentation site for Your Name">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="../index.html" class="logo">
+					<span class="symbol"><img src="../assets/images/iberologo.png" alt="" /></span><span class="title">Renata Y Cecilia -
+						IBERO PUEBLA</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="../index.html">Proyectos</a></li>
+				<li><a href="../finalproject.html">Proyecto Final</a></li>
+				<li><a href="../about.html">Sobre Nosotras </a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Proyecto final</h1>
+				<p>El proyecto consiste en un circuito decorativo de luces navideñas en forma de árbol que genera una secuencia animada de LEDs. El sistema utiliza un temporizador 555 configurado en modo astable para generar pulsos de reloj, los cuales alimentan un contador decade 4017 que activa secuencialmente 10 salidas. Cada salida controla grupos de LEDs distribuidos en forma de árbol de navidad, creando un efecto visual de luces que se encienden en secuencia, simulando el clásico efecto de "luces corriendo" típico de las decoraciones navideñas.<p>
+
+                </p> El circuito es completamente analógico, no requiere programación, y demuestra el uso de componentes digitales básicos para crear patrones de iluminación. La frecuencia de la secuencia es ajustable mediante los componentes del temporizador 555, permitiendo controlar la velocidad del efecto visual.
+El proceso de diseño siguió un flujo estratégico que aprovechó las fortalezas de diferentes herramientas de software:
+</p>
+
+			     </p>1.	Multisim: Diseño inicial y simulación del circuito.
+2.	Altium Designer: Recreación del esquemático validado y diseño de la PCB.
+3.	KiCad: Preparación de archivos de fabricación (perforaciones y contorno).
+4.	MODS CE: Conversión de archivos para compatibilidad con monoFab SRM-20
+</p>
+
+			     </p>Los componentes utilizados fueron:
+•	NE555 – temporizador configurado en modo astable para generar la señal de reloj.
+•	IC 4017 – contador con 10 salidas decodificadas.
+•	15 LEDs SMD
+•	15 resistencias de 330 Ω
+•	Capacitor 100nF – para estabilizar la alimentación de los integrados.
+•	Capacitor 10uF – capacitor de temporización para el 555, determina la frecuencia de oscilación.
+•	Resistencias de temporización – para configurar la frecuencia del 555.
+</p>
+
+				 </p> El diseño se inició en multisim debido a su capacidad de simulación en tiempo real, algo que Altium no ofrece en su versión estándar. Esto permitió validar completamente el funcionamiento del circuito antes de proceder a la fabricación física.
+Se colocaron los componentes desde las librerías de Multisim:
+•	NE555 desde la familia "TTL" o "Analog"
+•	CD4017 desde la familia "CMOS"
+•	Resistencias, capacitores y LEDs desde componentes básicos
+•	Fuente de alimentación DC
+Se realizaron conexiones siguiendo el diagrama funcional descrito anteriormente. Se oprimió el botón de “Run” y la simulación confirmó que el circuito funcionaba.
+</p> 
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs9/paso1.png" alt="..." /></figure>
+
+				 </p> Una vez confirmado el funcionamiento correcto del circuito mediante simulación en Multisim, el esquemático se recreó en Altium Designer para aprovechar sus capacidades profesionales de diseño de PCB.
+El esquemático en Altium se organizó con net labels descriptivos y se verificó que todas las conexiones coincidieran exactamente con el diseño simulado.
+</p>
+
+<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs9/paso2.png" alt="..." /></figure>
+
+				</p> 
+Con el esquemático completado en Altium, se procedió al diseño del PCB. Se creó un nuevo documento PCB y se ejecutó Design → Update PCB Document para transferir los componentes desde el esquemático. El panel ECO validó todos los cambios antes de ejecutarlos.
+</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs9/paso3.png" alt="..." /></figure>
+
+			     </p> Antes de proceder a la fabricación, se ejecutó el DCR en altium, el cual no mostró errores críticos, confirmando que el diseño estaba listo para la siguiente fase.
+Aunque el diseño del PCB se realizó en Altium, se utilizó KiCad específicamente para generar los archivos de perforación y contorno de manera compatible con el flujo de trabajo de fabricación del laboratorio. Los pasos para manejar este software se describen en la sección de uso de KiCad.
+Los archivos generados por KiCad requirieron conversión a formato compatible con la fresadora monoFab SRM-20. Para esto se utilizó MODS CE.
+Aunque inicialmente se consideró usar la xTool F1 Ultra, debido a problemas de calibración de la máquina se optó por fabricar toda la placa con la monoFab SRM-20. El resultado fue el siguiente:
+</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs9/paso4.png" alt="..." /></figure>
+
+
+				  </p> Una vez completada la fabricación de la PCB con la monoFab SRM-20, se procedió al ensamblaje manual de todos los componentes. El proceso de soldadura se realizó siguiendo las técnicas aprendidas en la práctica de soldadura, utilizando tanto estaño en hilo como pasta de soldar según el tipo de componente y la aplicación específica.
+Después de completar todas las soldaduras, correcciones y limpieza, la placa quedó completamente ensamblada con todos sus componentes correctamente instalados. A continuación, se presenta el prototipo funcional terminado:
+
+</p>
+
+</p> https://iberopuebla-my.sharepoint.com/:v:/g/personal/194124_iberopuebla_mx/EQZuL6TepDdCg9mVoSz11lYBfaePhBG9GeE2o-qOvi6oIQ?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=WV5agE</p>
+
+				
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/renatx_9/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://www.instagram.com/ceciliaa.pp/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+			
+				</section>
+				<ul class="copyright">
+					<li>&copy; Copyright 2025 Renta Morales y Cecilia Piña </li>
+					<li>Creative Commons Attribution Non Commercial</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

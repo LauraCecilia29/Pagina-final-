@@ -1,0 +1,187 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Renata Y Cecilia - IBERO PUEBLA</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Fab Academy documentation site for Your Name">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="../index.html" class="logo">
+					<span class="symbol"><img src="../assets/images/iberologo.png" alt="" /></span><span class="title">Renata Y Cecilia -
+						IBERO PUEBLA</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="../index.html">Proyectos</a></li>
+				<li><a href="../finalproject.html">Proyecto Final</a></li>
+				<li><a href="../about.html">Sobre Nosotras </a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>5. Cortadora de Vinil</h1>
+				<h2>Introducción </h2>
+				<p>En este proyecto, buscamos aprovechar la cortadora de vinil como una herramienta alternativa para fabricar 
+					PCB flexibles, reemplazando el vinil por cinta de cobre. La idea es desarrollar un proceso de prototipado 
+					rápido, donde el diseño del circuito se prepara digitalmente y la máquina corta directamente las pistas 
+					sobre el material conductor. Aunque el método requiere ajustes y aún está en fase experimental, tiene 
+					potencial para crear circuitos simples, económicos y flexibles sin necesidad de procesos químicos o de 
+					grabado tradicionales.<p>
+
+				<h2>Preparación de archivos en Kicad </h2>
+
+                    </p>A diferencia de un proceso de fresado, la cortadora de vinil sigue líneas vectoriales y está diseñada 
+					para seguir líneas. Por ello, fue necesario invertir la lógica del diseño para que la máquina cortara el
+					 material de aislamiento entre las pistas, que es precisamente el cobre que queremos remover. Si se exporta 
+					 el diseño normal, cortaría las pistas como líneas, haciendo inviable el circuito. </p>
+
+				</p>Para tener el archivo correcto hay que editarlo desde KiCad. Se selcciona “Draw Filled Zones” en el panel 
+				de herramientas. Se da click en cada esquina de la placa para cubrir todas las pistas y componentes y al final
+				 se da doble click. Automáticamente, KiCad calcula y rellena toda el área, si esto no pasa hay que oprimir la
+				  tecla B. </p>
+
+				<h2>Parametros </h2>
+				<p>•	Layer: F.Cu (capa frontal de cobre)
+•	Net: <no net> (sin conexión a red específica)
+•	Clearance: 0.25 mm
+•	Minimum width: 0.27 mm
+•	Pad connections: Solid
+•	Zone priority level: 0
+</p>
+				
+				<p>Para guardar el archivo hay que ir a Salidas de Fabricación y luego Trazado, se selecciona el formato SVG y 
+					se selecciona solo la capa de cobre con la zona rellena. Es muy importante seleccionar “Trazado invertido” 
+					y “Fit to page board”, después se da click en “Trazar” y automáticamente se guarda el archivo.</p>
+
+			    <h2>Preparación del tapete y material </h2>
+
+				<p>SPara el uso de la cortadora lo primero es preparar el tapete y material. La cinta de cobre no se comporta
+					 como vinil normal porque es metálica, delgada y sin rigidez. Para que no se mueva, se pone pegamento extra 
+					 en la cama adhesiva, luego una capa de vinil de sacrificio, y encima la cinta de cobre. Es importante que 
+					 no haya material sobre los bordes negros del tapete porque interfiere con el mecanismo de carga.</p>
+
+					 figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs5/paso1.png" alt="..." /></figure>
+				<h2>Configuración de Parámetros</h2>
+
+				<p>El tapete se tiene que limpiar con alcohol antes y después de cada uso. Si no, se acumula adhesivo y residuos 
+					de cobre que arruinan la planitud de la superficie y afectan cortes futuros. La fecha del tapete debe señalar 
+					hacia adentro de la máquina cuando se coloca en ella.
+				</p>
+
+
+				<h2>Proceso de corte</h2>
+
+				<p>Para el proceso de corte se prepara el archivo SVG y se carga desde una USB y se selecciona la opción “Retrieve Data” y
+					 luego “Buscar dentro de USB” para acceder a los archivos compatibles (PHX, PHC, FCM, PES, SVG).
+
+					  figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs5/paso3.png" alt="..." /></figure>
+
+				<p>Se posiciona el diseño en la cuadrícula donde había material confirmado. Antes de hacer el corte completo, se recomienda
+					 hacer una prueba en una esquina pequeña para verificar presión y profundidad sin arruinar toda la pieza..</p>
+
+					 <h2>Configuración de parámetros</h2>
+				<p>Para la configuración, algunos compañeros realizaron distintas pruebas para poder obtener configuraciones que dieron resultados 
+					decentes. Nuestras medidas utilizadas fueron las siguientes:</p>
+
+				<p>•	Velocidad de corte: 1
+•	Presión de corte: -9
+•	Presión manual: -1
+•	Cut amount: auto
+•	Half cut: On
+•	Presión half cut: -1
+</p>
+
+				<p>Se observaron algunos desafíos como una rotura en la máquina que requirió mantener manualmente el cabezal durante el proceso de corte, lo que seguramente causó inconsistencias fundamentales en la profundidad y uniformidad del corte.
+Usar cortadora de vinil para PCBs flexibles es una alternativa interesante para prototipado rápido, pero todavía hay cosas que se pueden hacer para mejorar.
+</p>
+
+
+				<p>Se posiciona el diseño en la cuadrícula donde había material confirmado. Antes de hacer el corte completo, se recomienda
+					 hacer una prueba en una esquina pequeña para verificar presión y profundidad sin arruinar toda la pieza..</p>
+				
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/renatx_9/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://www.instagram.com/ceciliaa.pp/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+			
+				</section>
+				<ul class="copyright">
+					<li>&copy; Copyright 2025 Renta Morales y Cecilia Piña </li>
+					<li>Creative Commons Attribution Non Commercial</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

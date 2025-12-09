@@ -1,0 +1,194 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Renata Y Cecilia - IBERO PUEBLA</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Fab Academy documentation site for Your Name">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="../index.html" class="logo">
+					<span class="symbol"><img src="../assets/images/iberologo.png" alt="" /></span><span class="title">Renata Y Cecilia -
+						IBERO PUEBLA</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="../index.html">Proyectos</a></li>
+				<li><a href="../finalproject.html">Proyecto Final</a></li>
+				<li><a href="../about.html">Sobre Nosotras </a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>4. Multisim</h1>
+				<p>Se trata de uno de los simuladores electrónicos más potentes, cuenta con más de 30 000 componentes en su 
+					librería, lo que permite realizar una amplia gama de diseños y analizarlos para ver su comportamiento real 
+					en circunstancias con características de ambiente específicas (temperatura, ruido, entre otras). Su manejo 
+					es sencillo gracias a la interfaz intuitiva que posee. <p>
+
+					<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs4/paso1.jpg" alt="..." /></figure>
+
+                    </p>A continuación, se presenta cómo trabajar de manera básica con multisim y algunos tipos de simulaciones 
+					que se pueden realizar.</p>
+
+				<h2>Forma de trabajo</h2>
+				<p>EEl entorno de trabajo está compuesto por el área de diseño (Schematic), el menú de componentes, la barra de instrumentos 
+					virtuales, y los controles de simulación.</p>
+				
+				<p>En la tercera barra superior del área de trabajo se encuentran todos los componentes que se pueden colocar, 
+					el botón de Run (que permite correr la simulación), Interactive (donde están los diferentes análisis que se 
+					pueden llevar a cabo) y otros botones para hacer mediciones puntuales.</p>
+
+				<p>En la barra derecha se encuentran instrumentos como multímetros, generadores de funciones, osciloscopios y fuentes 
+					de alimentación que permiten medir o aplicar señales a los circuitos simulados.</p>
+
+				<p>Para empezar a armar el circuito se da click en Place (o ctrl+w en el teclado) lo que abrirá una ventana 
+					donde se pueden apreciar las bases de datos y sus componentes asociadas, mismas que se encuentran organizadas 
+					por grupos (fuentes, básicos, diodos, etc.) y estas a su vez en familias. Se selecciona el componente que se 
+					quiera agregar presionando el botón de OK y simplemente se da click en el lugar en que se quiera colocar.</p>
+
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs4/paso2.jpeg" alt="..." /></figure>
+
+				<p>Dando doble click en el componente colocado se pueden editar sus características (como voltaje, por ejemplo) 
+					y para unirlo a otros solo se coloca el puntero en las patas de la pieza y se arrastra hasta conectarlo con 
+					el otro componente.</p>
+
+				<h2>Tipos de simulaciones</h2>
+
+				<p>Este software permite realizar distintos tipos de simulaciones como:</p>
+
+				<p>DC (Corriente continua). Calcula los voltajes y corrientes del circuito en un estado estable, sin cambios en
+					 el tiempo. Es como obtener una foto del circuito para saber si todo está funcionando correctamente (que el 
+					 circuito esté bien alimentado, ver si un transistor está haciendo corto, etc.).</p>
+
+				<p>Para esta simulación se usaron los siguientes componentes:</p>
+
+				<p>•	Fuente de voltaje DC V1 = 20 V
+•	Resistencia de 5 Ω
+•	Resistencia de 7 Ω
+•	Inductor de 20 mH
+•	Interruptor 
+•	Osciloscopio (canales A y B)
+</p>
+				<p>Los componentes se colocaron sobre el área de trabajo, se rotaron con Ctrl+R y se editaron sus valores por 
+					medio de doble clic. Posteriormente se realizaron las conexiones siguiendo el diagrama lógico del circuito.</p>
+
+
+				
+				<p>Una vez completado el cableado, se ejecutó la simulación presionando Run (▶️).</p>
+
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs4/paso4.png" alt="..." /></figure>
+				
+				<p>Transitoria. Simula el circuito momento a momento, viendo cómo cambian voltajes/corrientes en función del 
+					tiempo. A diferencia de la simulación DC, esta es más bien un video del circuito que permite observar 
+					respuestas dinámicas como cargas de capacitores, pulsos u oscilaciones. Es esencial para diseñar filtros (
+						que dejan pasar o bloquean ciertas frecuencias) y amplificadores (para asegurar que amplifiquen bien 
+						en todo el rango de audio). </p>
+				
+				<p>Para esta simulación se usaron los siguientes componentes:</p>
+
+				<p>•	Fuente DC de 12 V
+•	Interruptor
+•	Resistencia de 1 kΩ
+•	Resistencia de 1 kΩ
+•	Capacitor de 1 µF
+</p>
+
+				<p>Los componentes se colocaron sobre el área de trabajo, se rotaron con Ctrl+R y se editaron sus valores
+					 por medio de doble clic. Posteriormente se realizaron las conexiones siguiendo el diagrama lógico del 
+					 circuito.</p>
+
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs4/paso5.png" alt="..." /></figure>
+
+				<p>Una vez completado el cableado, se ejecutó la simulación presionando Run (▶️).</p>
+
+				<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs4/paso6.png" alt="..." /></figure>
+			    
+			   
+			    
+				
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/renatx_9/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://www.instagram.com/ceciliaa.pp/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+			
+				</section>
+				<ul class="copyright">
+					<li>&copy; Copyright 2025 Renta Morales y Cecilia Piña </li>
+					<li>Creative Commons Attribution Non Commercial</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

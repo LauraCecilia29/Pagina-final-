@@ -1,0 +1,190 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Renata Y Cecilia - IBERO PUEBLA</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Fab Academy documentation site for Your Name">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="../index.html" class="logo">
+					<span class="symbol"><img src="../assets/images/iberologo.png" alt="" /></span><span class="title">Renata Y Cecilia -
+						IBERO PUEBLA</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="../index.html">Proyectos</a></li>
+				<li><a href="../finalproject.html">Proyecto Final</a></li>
+				<li><a href="../about.html">Sobre Nosotras </a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>7. Altium</h1>
+				<p>Es un software profesional utilizado en la industria para el diseño de circuitos impresos. Ofrece un ecosistema integrado con herramientas de simulación, verificación de diseño y características avanzadas de enrutado automático. A continuación, se presenta el flujo de trabajo completo desde la creación del proyecto hasta la generación de archivos de fabricación.<p>
+
+                </p>El primer paso es crear un nuevo proyecto en Altium. Se selecciona File → New → Project → PCB Project y se define el nombre y ubicación del proyecto. Altium organiza el trabajo mediante un sistema de proyectos (.PrjPcb) que integra todos los archivos relacionados: esquemáticos, PCB, librerías y documentos de salida.</p>
+
+			     </p>Para la gestión de componentes, Altium incluye acceso a librerías en línea mediante Manufacturer Part Search, que permite buscar componentes con toda su información técnica, modelos 3D y disponibilidad comercial. Se accede desde Panels → Components y se busca por número de parte o descripción. Cada componente integra símbolo esquemático, huella PCB y modelo 3D.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso1.png" alt="..." /></figure>
+
+			     </p>Para el diseño de un nuevo esquemático se da click derecho en el proyecto → Add New to Project → Schematic. Para colocar componentes se usa la tecla P, se pueden rotar con la barra espaciadora durante la colocación y copiar múltiples con Ctrl+D.</p>
+
+				 </p> Las conexiones se realizan mediante cables (Ctrl+W) que conectan punto a punto. Para limpiar visualmente el esquemático se pueden usar Net Labels (P → N) que etiquetan redes sin cables físicos. Altium conecta automáticamente todos los puntos con el mismo nombre de red, incluso entre múltiples hojas. También se utilizan Power Ports (P → Shift+P) para VCC, GND y otras señales de alimentación. Las etiquetas (Net Labels) son fundamentales para mantener el diseño ordenado. Se colocan en las conexiones y permiten que el esquemático sea legible sin necesidad de cables que atraviesen toda la página.</p>
+
+				 </p> El primer paso es encender el soldador y esperar a que llegue a la temperatura adecuada (entre 300º y 400º). 
+				Una vez que lo haga, se estaña la punta (se recubre con una pequeña cantidad de soldadura) para protegerla y ayudar con
+				 la transferencia de calor. Despues, se limpia la punta con una esponja húmeda para quitar cualquier exceso de soldadura u 
+				 oxidación.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso2.png" alt="..." /></figure>
+
+				</p> Para transferir el diseño al PCB se crea un nuevo documento PCB (click derecho en proyecto → Add New to Project → PCB) y se ejecuta Design → Update PCB Document. El panel ECO (Engineering Change Order) muestra los cambios a aplicar. Después de validar con Validate Changes se ejecutan con Execute Changes.</p>
+
+			     </p> Se configura el contorno de la placa usando Design → Board Shape y se definen las reglas de diseño en Design → Rules. Las reglas principales incluyen Clearance (separación mínima entre pistas), Width (ancho mínimo de pistas) y Via Style (tamaño de vías). Altium verifica reglas en tiempo real y las violaciones aparecen como líneas verdes en el diseño.</p>
+
+				 </p> Los componentes se organizan usando herramientas como Tools → Component Placement → Arrange Within Rectangle para auto-posicionamiento, o las opciones de alineación y distribución del menú Align.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso3.png" alt="..." /></figure>
+
+				 </p> El enrutado manual se inicia con Ctrl+W o click en un pad. Durante el enrutado se puede cambiar el modo de esquina con Shift+Space para alternar entre 45°, 90° y arco. Se termina la ruta con click derecho → End Route o presionando Esc.</p>
+
+				 </p> Una característica distintiva de Altium es su motor de enrutado automático. Se accede desde Auto Route → All y se configuran las estrategias de enrutado. Los parámetros principales incluyen número de pasadas (intentos del algoritmo), prioridad de capas, cantidad de vías permitidas, y estrategias como Fanout (crea vías iniciales), Memory (usa resultados anteriores), Main (algoritmo principal), Recorner (optimiza esquinas) y Cleanup (limpia rutas finales).</p>
+
+				 </p> PEl auto-routing es útil para evaluar rápidamente la viabilidad del layout y para diseños con muchas conexiones, aunque es importante revisar y optimizar las rutas generadas.</p>
+
+				  <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso4.png" alt="..." /></figure>
+
+				 </p> El Design Rule Check (DRC) es crucial antes de enviar a fabricación. Se ejecuta desde Tools → Design Rule Check y se configuran las reglas a verificar. El panel muestra violaciones con ubicación exacta, y con doble click en cada error se navega directo a la ubicación. Los errores comunes incluyen violaciones de clearance (pistas muy cerca), unrouted nets (conexiones sin completar) y violaciones de ancho mínimo (pistas muy delgadas).</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso5.png" alt="..." /></figure>
+
+				</p> Para aplicar la soldadura se coloca la punta del cautin en contacto con la pista de cobre y la pata del componente 
+				 al miPara generar archivos Gerber se selecciona File → Fabrication Outputs → Gerber Files. Se configura el formato (2:5 ofrece suficiente precisión), las unidades (milímetros o pulgadas según fabricante) y se seleccionan todas las capas necesarias. Altium crea una carpeta con archivos .gbr
+Otros formatos disponibles incluyen DXF/DWG para importar en software CAD mecánico, PDF para documentación, IDF para validación mecánica, STEP para modelo 3D completo, y ODB++ como alternativa estándar a Gerber. Los archivos de perforación se generan desde File → Fabrication Outputs → NC Drill Files en formato Excellon.
+</p>
+
+                 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso6.png" alt="..." /></figure>
+
+				 </p> Altium Designer incluye capacidades de simulación integradas que permiten verificar el comportamiento del circuito antes de fabricarlo. Se puede realizar análisis DC, AC transitorio y de frecuencia directamente desde el esquemático. Para simular, se configuran los parámetros de análisis desde Simulate → Setup y se ejecuta con Simulate → Run. Los resultados se visualizan en gráficas que muestran voltajes, corrientes y respuestas en frecuencia según el tipo de análisis seleccionado.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso7.png" alt="..." /></figure>
+				 </p> Para transferir el diseño al PCB se crea un nuevo documento PCB (click derecho en proyecto → Add New to Project → PCB) y se ejecuta Design → Update PCB Document. El panel ECO (Engineering Change Order) muestra los cambios a aplicar. Después de validar con Validate Changes se ejecutan con Execute Changes.
+Se configura el contorno de la placa usando Design → Board Shape y se definen las reglas de diseño en Design → Rules. Las reglas principales incluyen Clearance (separación mínima entre pistas), Width (ancho mínimo de pistas) y Via Style (tamaño de vías). Altium verifica reglas en tiempo real y las violaciones aparecen como líneas verdes en el diseño.
+Los componentes se organizan usando herramientas como Tools → Component Placement → Arrange Within Rectangle para auto-posicionamiento, o las opciones de alineación y distribución del menú Align.
+</p>
+
+                <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso8.png" alt="..." /></figure>
+				 </p> El enrutado manual se inicia con Ctrl+W o click en un pad. Durante el enrutado se puede cambiar el modo de esquina con Shift+Space para alternar entre 45°, 90° y arco. Se termina la ruta con click derecho → End Route o presionando Esc.
+Una característica distintiva de Altium es su motor de enrutado automático. Se accede desde Auto Route → All y se configuran las estrategias de enrutado. Los parámetros principales incluyen número de pasadas (intentos del algoritmo), prioridad de capas, cantidad de vías permitidas, y estrategias como Fanout (crea vías iniciales), Memory (usa resultados anteriores), Main (algoritmo principal), Recorner (optimiza esquinas) y Cleanup (limpia rutas finales).
+</p>
+
+<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso9.png" alt="..." /></figure>
+				 </p> El auto-routing es útil para evaluar rápidamente la viabilidad del layout y para diseños con muchas conexiones, aunque es importante revisar y optimizar las rutas generadas.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso10.png" alt="..." /></figure>
+
+
+				 </p> PEl Design Rule Check (DRC) es crucial antes de enviar a fabricación. Se ejecuta desde Tools → Design Rule Check y se configuran las reglas a verificar. El panel muestra violaciones con ubicación exacta, y con doble click en cada error se navega directo a la ubicación. Los errores comunes incluyen violaciones de clearance (pistas muy cerca), unrouted nets (conexiones sin completar) y violaciones de ancho mínimo (pistas muy delgadas).</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso11.png" alt="..." /></figure>
+
+				 </p> Para generar archivos Gerber se selecciona File → Fabrication Outputs → Gerber Files. Se configura el formato (2:5 ofrece suficiente precisión), las unidades (milímetros o pulgadas según fabricante) y se seleccionan todas las capas necesarias. Altium crea una carpeta con archivos .gbr
+Otros formatos disponibles incluyen DXF/DWG para importar en software CAD mecánico, PDF para documentación, IDF para validación mecánica, STEP para modelo 3D completo, y ODB++ como alternativa estándar a Gerber. Los archivos de perforación se generan desde File → Fabrication Outputs → NC Drill Files en formato Excellon.
+</p>
+
+<figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso12.png" alt="..." /></figure>
+
+
+				 </p> Altium Designer incluye capacidades de simulación integradas que permiten verificar el comportamiento del circuito antes de fabricarlo. Se puede realizar análisis DC, AC transitorio y de frecuencia directamente desde el esquemático. Para simular, se configuran los parámetros de análisis desde Simulate → Setup y se ejecuta con Simulate → Run. Los resultados se visualizan en gráficas que muestran voltajes, corrientes y respuestas en frecuencia según el tipo de análisis seleccionado.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs7/paso13.png" alt="..." /></figure>
+
+
+				
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/renatx_9/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://www.instagram.com/ceciliaa.pp/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+			
+				</section>
+				<ul class="copyright">
+					<li>&copy; Copyright 2025 Renta Morales y Cecilia Piña </li>
+					<li>Creative Commons Attribution Non Commercial</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

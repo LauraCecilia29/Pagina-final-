@@ -1,0 +1,145 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Renata Y Cecilia - IBERO PUEBLA</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<meta name="description" content="Fab Academy documentation site for Your Name">
+	<link rel="stylesheet" href="../assets/css/main.css" />
+	<noscript>
+		<link rel="stylesheet" href="../assets/css/noscript.css" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="inner">
+
+				<!-- Logo -->
+				<a href="../index.html" class="logo">
+					<span class="symbol"><img src="../assets/images/iberologo.png" alt="" /></span><span class="title">Renata Y Cecilia -
+						IBERO PUEBLA</span>
+				</a>
+
+				<!-- Nav -->
+				<nav>
+					<ul>
+						<li><a href="#menu">Menu</a></li>
+					</ul>
+				</nav>
+
+			</div>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<h2>Menu</h2>
+			<ul>
+				<li><a href="../index.html">Proyectos</a></li>
+				<li><a href="../finalproject.html">Proyecto Final</a></li>
+				<li><a href="../about.html">Sobre Nosotras </a></li>
+			</ul>
+		</nav>
+
+		<!-- Main -->
+		<div id="main">
+			<div class="inner">
+				<h1>Xtool</h1>
+				<p>La xTool F1 Ultra es una máquina láser híbrida que combina láser de diodo (10W) con módulo de fibra infrarroja (IR), diseñado específicamente para trabajar con metales. Esta tecnología permite fabricar placas de circuito impreso mediante ablación térmica, removiendo selectivamente el cobre de la placa.<p>
+
+
+                </p>Cuenta con un área de trabajo de 100mm × 100mm, alta precisión para trabajos detallados, sistema de enfoque con medición automática de altura, cámara integrada para posicionamiento preciso, sistema de enfriamiento obligatorio para operación del láser de fibra, y se controla mediante el software xTool Creative Space (XCS).</p>
+
+			     </p>LEs fundamental encender el sistema de enfriamiento antes de iniciar cualquier trabajo con la fibra IR. Operar sin enfriamiento puede dañar permanentemente el láser.</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs8/paso1.png" alt="..." /></figure>
+
+
+			     </p>Es necesario crear una máscara que cubra toda la placa. En Altium Designer se selecciona el contorno de la placa (Board Shape) y se convierte a polígono. Luego se crea un Copper Pour usando Place → Polygon Pour, dibujando un polígono que cubra toda el área. En las propiedades se configura Net como "No Net", Layer como Top Layer, Connect Style como Solid y se desactiva Remove Dead Copper. Finalmente se rellena el polígono con click derecho → Polygon Actions → Repour All.</p>
+
+				 </p> El resultado es una capa de cobre completamente rellena. Esta máscara permite que al exportar en formato DXF, el láser grabe las áreas de aislamiento entre pistas, conservando el cobre donde están las pistas deseadas.
+Para exportar se selecciona File → Fabrication Outputs → DXF, se configura el formato DXF, se selecciona la capa Top Layer con el pour relleno, se establecen las unidades en milímetros y se guarda el archivo para importar en XCS.
+</p> 
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs8/paso2.png" alt="..." /></figure>
+
+				 </p> Se importa el archivo DXF al software XCS arrastrándolo al área de trabajo y se verifica que las dimensiones coincidan con el diseño original. La xTool F1 incluye una cámara que permite posicionamiento visual preciso. Se captura la imagen en vivo para ver la placa en tiempo real, se superpone el diseño digital sobre la imagen de la cámara y se realizan ajustes finos moviendo y rotando el diseño para alinearlo perfectamente con la placa física.
+Antes del grabado, la máquina debe determinar la altura exacta de la superficie. Se inicia la medición desde XCS, el láser mide múltiples puntos de la superficie automáticamente y el software ajusta el enfoque para toda el área. La placa debe estar perfectamente plana ya que cualquier curvatura afectará el grabado, aunque la medición automática compensa variaciones menores.
+</p>
+
+ <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs8/paso3.png" alt="..." /></figure>
+				</p> Los parámetros se ajustan específicamente para la fibra IR trabajando sobre cobre. Se selecciona Modo Fibra IR (Infrared Fiber), Material Metal - Cobre, y se configuran potencia, velocidad, frecuencia y número de pasadas según las características del material y el detalle requerido.
+Se verifica el recorrido del láser en XCS mediante vista previa y se presiona Start para iniciar el trabajo. Durante el grabado, el láser de fibra IR remueve el cobre en las áreas de aislamiento de forma rápida y precisa mientras el sistema de enfriamiento mantiene la temperatura estable. El proceso se puede monitorear a través de la cámara integrada.
+Es importante mantener siempre la cubierta cerrada durante operación ya que el láser de fibra es invisible y extremadamente peligroso. No se debe intentar observar directamente el punto de trabajo y hay que asegurar que el sistema de enfriamiento esté funcionando.
+</p>
+
+				 <figure class="mb-4"><img class="img-fluid rounded" width="800px" src="imgs8/paso4.png" alt="..." /></figure>
+
+			     </p> PUna vez completado el grabado láser, la placa requiere procesos adicionales que se realizan en la fresadora CNC monoFab SRM-20. Primero se perforan los orificios para componentes through-hole usando brocas de 0.8-1.0 mm según diseño, con velocidad reducida para evitar romper brocas pequeñas. Luego se corta el contorno con fresa de 1/32" para definir la forma final de la placa, con profundidad suficiente para cortar completamente el sustrato.
+El flujo de trabajo completo combina la xTool F1 para el grabado de pistas con láser de fibra IR, seguido de la monoFab SRM-20 para perforación y corte de contorno, resultando en una PCB completa lista para ensamblaje.
+El láser de fibra IR ofrece excelente precisión con definición de pistas finas, velocidad significativamente mayor que el fresado, no requiere cambio de fresas ni desgaste de herramientas, y proporciona repetibilidad con resultados consistentes una vez configurado. La xTool F1 demostró ser una excelente opción para el grabado de pistas en PCB, y la combinación con la monoFab SRM-20 permitió completar el proceso de fabricación satisfactoriamente, logrando placas funcionales listas para el ensamblaje de componentes.
+</p>
+
+		
+				
+			</div>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<section>
+					<h2>Get in touch</h2>
+					<form method="post" action="#">
+						<div class="fields">
+							<div class="field half">
+								<input type="text" name="name" id="name" placeholder="Name" />
+							</div>
+							<div class="field half">
+								<input type="email" name="email" id="email" placeholder="Email" />
+							</div>
+							<div class="field">
+								<textarea name="message" id="message" placeholder="Message"></textarea>
+							</div>
+						</div>
+						<ul class="actions">
+							<li><input type="submit" value="Send" class="primary" /></li>
+						</ul>
+					</form>
+				</section>
+				<section>
+					<h2>Follow</h2>
+					<ul class="icons">
+						<li><a href="https://www.instagram.com/renatx_9/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="https://www.instagram.com/ceciliaa.pp/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a>
+						</li>
+						<li><a href="#" class="icon solid style2 fa-phone"><span class="label">Phone</span></a></li>
+						<li><a href="#" class="icon solid style2 fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+			
+				</section>
+				<ul class="copyright">
+					<li>&copy; Copyright 2025 Renta Morales y Cecilia Piña </li>
+					<li>Creative Commons Attribution Non Commercial</li>
+				</ul>
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/browser.min.js"></script>
+	<script src="assets/js/breakpoints.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<script src="assets/js/main.js"></script>
+
+</body>
+
+</html>
